@@ -21,7 +21,7 @@ Nuestro Análisis Exploratorio Inicial nos permite entender cada variable del da
 
 <img width="781" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/f560ebc2-86f4-4744-bd28-09153d51ef32">
 
-Luego de esto, analizamos cada variable según su categoría.
+Luego de esto, analizamos cada variable según su tipo.
 
 ### Análisis de features numéricas
 
@@ -91,11 +91,11 @@ Se aplicó un encoding binario para no agregar demasiadas columnas.
 
 ### Date
 
-Se decidió reemplazar la fecha Date (yyyy-mm-dd) por el mes, ya que como sabemos las temperaturas a lo largo del año suele ser cíclicas. Luego se transformó de categórica nominal con un onehotencoding.
+Se decidió reemplazar la fecha Date (yyyy-mm-dd) por el mes, ya que como sabemos las temperaturas a lo largo del año suele ser cíclicas. Luego se transformó de categórica nominal con un oneHot Encoding.
 
 ### RainToday y RainTomorrow
 
-Estas dos variables son boolenas (Yes/No), de modo que con una columna que tome los valores (0,1) alcanza para codificarlas.
+Estas dos variables son boolenas **(Yes/No)**, de modo que con una columna que tome los valores (0,1) alcanza para codificarlas.
 
 ## Análisis de correlaciones
 
@@ -133,13 +133,12 @@ En base a visualizar algunas métricas sobre outliers y las distribuciones de su
 
 <img width="892" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/e6dcc1eb-bbd8-4aeb-b441-4c15c6cfff4e">
 
-A partir desto decidimos tratar el outlier de manera distintas en el caso de las variables gaussianas (normales) y en el caso de las no gaussianas.
-
-La estrategia utilizada es la poda, ya que resulta sencilla y eficiente para este caso donde disponemos de un tamaño grande de muestras.
+Decidimos tratar los outliers de maneras distintas en el caso de las variables gaussianas (normales) que en el caso de las no gaussianas.
+La estrategia utilizada es la **poda** (trimming), ya que resulta sencilla y eficiente para este caso donde disponemos de un tamaño grande de muestras.
 
 ### Escalado de features
 
-Normalizamos las features numéricas como último paso de la etapa de preprocesmiento de los datos.
+Normalizamos las features numéricas como último paso de la etapa de preprocesamiento de los datos.
 Veremos ahora dos propuestas sencillas de modelos a testear, que pueden funcionar bien para nuestro dataset de pocas columnas y variables categóricas (tanto features como la target a predecir).
 
 ## Propuestas de modelos
@@ -147,6 +146,8 @@ Veremos ahora dos propuestas sencillas de modelos a testear, que pueden funciona
 ### Separación de los datos
 
 Se utilizó una función sencilla de _sci-kit learn_, donde se separó en train-test (80%-20%) con un valor de _random_state_.
+
+<img width="985" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/b64078d2-1bb4-4b34-8389-bd0f03412064">
 
 ### Random Forest
 
