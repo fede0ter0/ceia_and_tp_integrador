@@ -25,9 +25,31 @@ Luego de esto, analizamos cada variable según su categoría.
 
 ### Análisis de features numéricas
 
-### Análisis de variables (input/output) categóricas 
+Visualizamos los histogramas y distribuciones de las features numéricas.
+
+![image](https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/2ab79f0a-b8c5-4561-a4f4-8d560b195841)
+
+![image](https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/20a8c929-ce34-4464-8607-a8a6966e656c)
+
+Vemos que las siguientes features distribuyen como normal:
+- **MinTemp, MaxTemp, Humidity9Am, Humidity3Pm, Pressure9Am, Pressure3Pm, Temp9Am, Temp3Pm**.
+
+Estas otras features no distribuyen como normales:
+- **Rainfall, Evaporation, Sunshine, WindGustSpeed, WindSpeed9Am, WindSpeed3Pm, Cloud9Am, Cloud3Pm**
+
+### Análisis de variables (input/output) categóricas
+
+Visualizamos como se distribuyen sus valores.
+
+![image](https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/05677039-880c-4837-b082-aff08802c5cf)
+
+Vemos un buen balance de los datos, donde las categorías se ven muy uniformes.
 
 ### Análisis de la variable compuesta
+
+<img width="375" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/14d36acb-f272-4916-9196-9304f3a3d078">
+
+La variable **Date** tiene mas de 3000 valores únicos, con lo cual se propone transformala, quedándonos con el mes correspondiente.
 
 ## Ingeniería de features
 
@@ -78,7 +100,6 @@ Estas dos variables son boolenas (Yes/No), de modo que con una columna que tome 
 ## Análisis de correlaciones
 
 ### Análisis de colinealidad entre features numéricas
-
 
 <img width="850" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/71f135be-8e37-4d8d-b51c-cf0d86621e7b">
 
@@ -141,4 +162,15 @@ Podemos probar estrategias de cross validation para tener un entrenamiento más 
 
 ### Logistic Regression
 
+El caso más sencillo, el de la **regresión logística**, se ajusta bien a nuestros datos, dándonos un score de **86,75%**.
+
+<img width="826" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/d23477f4-8fca-4160-9c14-5a1478eda3c2">
+
+## Evaluación de resultados
+
+A modo de sugerencia, proponemos algunas de las siguientes herramientas para evaluar y comparar los resultados de los modelos:
+- accuracy score
+- R<sup>2</sup>
+- f-Score
+- confusion matrix
 
