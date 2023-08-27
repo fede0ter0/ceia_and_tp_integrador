@@ -29,7 +29,7 @@ Luego de esto, analizamos cada variable según su categoría.
 
 ### Análisis de la variable compuesta
 
-## Limpieza y preparación de los datos
+## Ingeniería de features
 
 Comenzamos ahora a intervenir en nuestro dataset. Lo primero que haremos será un análisis y tratamiento de los valores nulos o faltantes.
 
@@ -73,20 +73,72 @@ Se decidió reemplazar la fecha Date (yyyy-mm-dd) por el mes, ya que como sabemo
 
 ### RainToday y RainTomorrow
 
+Estas dos variables son boolenas (Yes/No), de modo que con una columna que tome los valores (0,1) alcanza para codificarlas.
+
+## Análisis de correlaciones
+
+### Análisis de colinealidad entre features numéricas
 
 
-## Ingeniería de features
+<img width="850" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/71f135be-8e37-4d8d-b51c-cf0d86621e7b">
 
-### Análisis de correlaciones
+### Análisis de Kendall entre las features y la variable target
+
+<img width="912" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/c9ecf486-ba7d-4948-863e-2e86e501e088">
+
+### Análisis X<sup>2</sup> y de Información Mutua (MI) para la relación entre las features categóricas y la variable target.
+
+**X<sup>2</sup>**
+
+<img width="892" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/8b6ed8ac-a832-4088-afdd-97f3e2037c2d">
+
+**MI**
+
+<img width="894" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/4a3d890c-f1f2-4cf0-9a17-0569d94194c5">
 
 ## Selección de features
 
+<img width="909" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/35108398-f8ea-4ada-8df6-cb2d01394e31">
+
 ### Análisis y tratamiento de outliers
+
+En base a visualizar algunas métricas sobre outliers y las distribuciones de sus variables:
+
+<img width="896" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/27ac0148-8f39-43d5-a829-acc8eebef0a8">
+
+<img width="884" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/18266e83-8a57-4608-900b-17a90abefbf7">
+
+<img width="889" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/d838e4ff-a874-4142-81d1-8e4253734cda">
+
+<img width="892" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/e6dcc1eb-bbd8-4aeb-b441-4c15c6cfff4e">
+
+A partir desto decidimos tratar el outlier de manera distintas en el caso de las variables gaussianas (normales) y en el caso de las no gaussianas.
+
+La estrategia utilizada es la poda, ya que resulta sencilla y eficiente para este caso donde disponemos de un tamaño grande de muestras.
+
 ### Escalado de features
+
+Normalizamos las features numéricas como último paso de la etapa de preprocesmiento de los datos.
+Veremos ahora dos propuestas sencillas de modelos a testear, que pueden funcionar bien para nuestro dataset de pocas columnas y variables categóricas (tanto features como la target a predecir).
 
 ## Propuestas de modelos
 
+### Separación de los datos
+
+Se utilizó una función sencilla de _sci-kit learn_, donde se separó en train-test (80%-20%) con un valor de _random_state_.
+
 ### Random Forest
 
+El score obtenido, luego de tratar de tunear los hiperparámetros, es de **87,11%**:
+
+<img width="684" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/e2523121-01a9-4f9c-a5c3-287fe1424a91">
+
+![image](https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/cc65dd9e-6c70-47e6-9e60-c9e71a04df60)
+
+Podemos probar estrategias de cross validation para tener un entrenamiento más balanceado de los datos
+
+<img width="831" alt="image" src="https://github.com/fede0ter0/ceia_and_tp_integrador/assets/109430776/246a0302-fa75-4e2a-b3b2-ee1b415d708f">
+
 ### Logistic Regression
+
 
